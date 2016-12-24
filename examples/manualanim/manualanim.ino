@@ -8,7 +8,6 @@ Adafruit_IS31FL3731 ledmatrix = Adafruit_IS31FL3731();
 //Adafruit_IS31FL3731_Wing ledmatrix = Adafruit_IS31FL3731_Wing();
 
 void setup() {
-
   Serial.begin(9600);
   Serial.println("ISSI manual animation test");
   if (! ledmatrix.begin()) {
@@ -23,16 +22,14 @@ void setup() {
 
   // fill all 8 frames with some text
   for (uint8_t frame = 0; frame < 8; frame++) {
-    ledmatrix.clear();
     ledmatrix.setFrame(frame);
+    ledmatrix.clear();
     ledmatrix.setCursor(0,0);
     ledmatrix.write('a'+frame*3);
     ledmatrix.write('b'+frame*3);
     ledmatrix.write('c'+frame*3);
   }
 }
-
-int x = 0;
 
 void loop() {
   // display each frame for 250 milliseconds
